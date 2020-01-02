@@ -11,17 +11,16 @@
 # USAGE
 # ./script raspbian.img rootfsfolder
 
-if [ "$EUID" -ne 0 ]
-  then echo "Please run as root. For creating loop devices and mounts"
-  exit
-fi
-
 set -u
 set -e
 
 if [ "$#" -lt "2" ]; then
 	echo "Give two arguments, e.g. ./script.sh img.img foldername"
 	exit 1
+fi
+if [ "$EUID" -ne 0 ]; then 
+	echo "Please run as root. For creating loop devices and mounts"
+	exit 126
 fi
 dest=$2
 if [ ! -d "$dest" ]; then
