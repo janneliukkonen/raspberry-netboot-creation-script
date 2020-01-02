@@ -6,6 +6,11 @@ Mounts the loop device, copies root and boot sections.
 
 Packages the whole root directory to rootfs.tar
 
+## Usage
+```
+./create_netboot_rpi.sh latest_raspbian.img rootfsfolder
+```
+
 ## Recommendations
 
 Inside the chroot, run following to enable SSH server.
